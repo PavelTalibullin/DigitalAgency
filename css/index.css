@@ -1,0 +1,52 @@
+@font-face {
+	font-family: "gotham";
+	src: url("../fonts/Gotham-Book.otf"), url("../fonts/Gotham-Book.ttf")format('truetype'),
+	  url("../fonts/Gotham-Book.woff")format('woff'), url("../fonts/Gotham-Book.woff2")format('woff2');
+	font-weight: 400;
+	font-display: swap;
+	font-style: normal;
+ }
+ 
+ @font-face {
+	font-family: "gothambook_italic";
+	src: url("../fonts/Gotham-BookItalic.otf"), url("../fonts/Gotham-BookItalic.ttf")format('truetype'),
+	  url("../fonts/Gotham-BookItalic.woff")format('woff'), url("../fonts/Gotham-Bookitalic.woff2")format('woff2');
+	font-weight: 400;
+	font-display: swap;
+	font-style: normal;
+ }
+ 
+ @font-face {
+	font-family: "gotham";
+	src: url("../fonts/Gotham-Light.otf"), url("../fonts/Gotham-Light.ttf") format('truetype'),
+	  url("../fonts/Gotham-Light.woff") format('woff'), url("../fonts/Gotham-light.woff2") format('woff2');
+	font-weight: 300;
+	font-display: swap;
+	font-style: normal;
+ }
+
+ ._icon-acorn:before {
+	content: "\e900";
+ }
+ ._icon-airbnb:before {
+	content: "\e901";
+	color: #f9fafa;
+ }
+ ._icon-disney:before {
+	content: "\e902";
+	color: #f9fafa;
+ }
+ ._icon-ericsson:before {
+	content: "\e903";
+	color: #f9fafa;
+ }
+ ._icon-microsoft:before {
+	content: "\e904";
+	color: #f9fafa;
+ }
+
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+}
+
