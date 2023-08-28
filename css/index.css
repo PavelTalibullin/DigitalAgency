@@ -1,52 +1,307 @@
 @font-face {
-	font-family: "gotham";
-	src: url("../fonts/Gotham-Book.otf"), url("../fonts/Gotham-Book.ttf")format('truetype'),
-	  url("../fonts/Gotham-Book.woff")format('woff'), url("../fonts/Gotham-Book.woff2")format('woff2');
-	font-weight: 400;
-	font-display: swap;
-	font-style: normal;
- }
- 
- @font-face {
-	font-family: "gothambook_italic";
-	src: url("../fonts/Gotham-BookItalic.otf"), url("../fonts/Gotham-BookItalic.ttf")format('truetype'),
-	  url("../fonts/Gotham-BookItalic.woff")format('woff'), url("../fonts/Gotham-Bookitalic.woff2")format('woff2');
-	font-weight: 400;
-	font-display: swap;
-	font-style: normal;
- }
- 
- @font-face {
-	font-family: "gotham";
-	src: url("../fonts/Gotham-Light.otf"), url("../fonts/Gotham-Light.ttf") format('truetype'),
-	  url("../fonts/Gotham-Light.woff") format('woff'), url("../fonts/Gotham-light.woff2") format('woff2');
-	font-weight: 300;
-	font-display: swap;
-	font-style: normal;
- }
-
- ._icon-acorn:before {
-	content: "\e900";
- }
- ._icon-airbnb:before {
-	content: "\e901";
-	color: #f9fafa;
- }
- ._icon-disney:before {
-	content: "\e902";
-	color: #f9fafa;
- }
- ._icon-ericsson:before {
-	content: "\e903";
-	color: #f9fafa;
- }
- ._icon-microsoft:before {
-	content: "\e904";
-	color: #f9fafa;
- }
-
-.wrapper {
-	min-height: 100%;
-	overflow: hidden;
+  font-family: "gotham";
+  src: url("../fonts/Gotham-Book.otf"),
+    url("../fonts/Gotham-Book.ttf") format("truetype"),
+    url("../fonts/Gotham-Book.woff") format("woff"),
+    url("../fonts/Gotham-Book.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
 }
 
+@font-face {
+  font-family: "gothambook_italic";
+  src: url("../fonts/Gotham-BookItalic.otf"),
+    url("../fonts/Gotham-BookItalic.ttf") format("truetype"),
+    url("../fonts/Gotham-BookItalic.woff") format("woff"),
+    url("../fonts/Gotham-Bookitalic.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "gotham";
+  src: url("../fonts/Gotham-Light.otf"),
+    url("../fonts/Gotham-Light.ttf") format("truetype"),
+    url("../fonts/Gotham-Light.woff") format("woff"),
+    url("../fonts/Gotham-light.woff2") format("woff2");
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+._icon-acorn:before {
+  content: "\e900";
+}
+._icon-airbnb:before {
+  content: "\e901";
+  color: #f9fafa;
+}
+._icon-disney:before {
+  content: "\e902";
+  color: #f9fafa;
+}
+._icon-ericsson:before {
+  content: "\e903";
+  color: #f9fafa;
+}
+._icon-microsoft:before {
+  content: "\e904";
+  color: #f9fafa;
+}
+/* ================================================================== */
+body {
+  height: 100%;
+  line-height: 1;
+  background-color: #272727;
+  color: #f9fafa;
+  font-size: 24px;
+  opacity: 1;
+}
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+._container {
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: content-box;
+}
+/* ================================ ШАПКА ================================== */
+.header {
+  width: 100%;
+  z-index: 1;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  min-height: 158px;
+  align-items: center;
+}
+
+.header__logo-link {
+  margin: 0px 70px 0px 0px;
+}
+
+.header__img {
+}
+
+.header__menu {
+}
+
+.menu {
+}
+
+.header__burger-btn {
+  display: none;
+  position: relative;
+  width: 50px;
+  height: 20px;
+  border: none;
+  outline: none;
+}
+
+.menu__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu__item {
+}
+
+.menu__item:not(:first-child) {
+  margin: 0px 0px 0px 53px;
+}
+
+.menu__link {
+  font-family: "gotham";
+  font-weight: 300;
+  line-height: 134.2%;
+}
+
+@media (max-width: 992px) {
+  .header__container {
+    min-height: 111px;
+  }
+
+  .header__logo-link {
+    margin: 0px 20px 0px 0px;
+  }
+
+  .header__img {
+    width: 60px;
+    height: 50px;
+  }
+
+  .menu__item:not(:first-child) {
+    margin: 0px 0px 0px 40px;
+  }
+
+  .menu__link {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper.opacityBody::after {
+	content: "";
+	background-color: #272727;
+	opacity: 50%;
+	left:0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	transition: all 0.3s 0.3s;
+	}
+	
+
+  .header__burger-btn {
+    display: block;
+    z-index: 20;
+  }
+
+  .header__burger-btn span {
+    position: absolute;
+    left: 0px;
+    width: 50px;
+    height: 1px;
+    background-color: #f9fafa;
+    transition: background-color 0.5s, opacity 0.25s, transform 0.5s;
+    will-change: transform;
+  }
+  .header__burger-btn span:nth-child(1) {
+    transform: translateY(-10px);
+  }
+  .header__burger-btn span:nth-child(2) {
+  }
+  .header__burger-btn span:nth-child(3) {
+    transform: translateY(10px);
+  }
+
+  /* =========================== КРЕСТИК =========================== */
+
+  .header.open .header__burger-btn span:nth-child(1) {
+    transform: translateY(0) rotate(27deg);
+    width: 40px;
+  }
+
+  .header.open .header__burger-btn span:nth-child(2) {
+    transform: translateY(0) rotate(-27deg);
+    width: 40px;
+  }
+
+  .header.open .header__burger-btn span:nth-child(3) {
+    opacity: 0;
+  }
+
+  .menu__body {
+    position: fixed;
+    top: 0px;
+    right: -290px;
+    width: 290px;
+    min-height: 370px;
+    background-color: #423d3d;
+    transition: transform 0.5s, visibility 0.2s;
+	 z-index: 19;
+  }
+
+  .wrapper.opacityBody::before {
+    opacity: 40%;
+  }
+
+  .menu__list {
+    display: block;
+    padding: 66px 0px 0px 32px;
+  }
+
+  .menu__item:not(:first-child) {
+    margin: 0px 0px 0px 0px;
+  }
+
+  .menu__item {
+    padding: 0px 0px 20px 0px;
+  }
+
+  /* ========================== Скольжение элементов меню ================== */
+  .header.open .menu__item:first-child {
+    animation-duration: 0.8s;
+    animation-name: slideItem1;
+  }
+  @keyframes slideItem1 {
+    from {
+      margin-left: 70%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+
+  .header.open .menu__item:nth-child(2) {
+    animation-duration: 0.7s;
+    animation-name: slideItem2;
+  }
+  @keyframes slideItem2 {
+    from {
+      margin-left: 70%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+
+  .header.open .menu__item:nth-child(3) {
+    animation-duration: 0.6s;
+    animation-name: slideItem3;
+  }
+  @keyframes slideItem3 {
+    from {
+      margin-left: 70%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+
+  .header.open .menu__item:nth-child(4) {
+    animation-duration: 0.5s;
+    animation-name: slideItem4;
+  }
+  @keyframes slideItem4 {
+    from {
+      margin-left: 70%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+
+  .header.open .menu__item:last-child {
+    animation-duration: 0.4s;
+    animation-name: slideItem5;
+  }
+  @keyframes slideItem5 {
+    from {
+      margin-left: 70%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+
+  .menu__link {
+    font-size: 24px;
+    line-height: 140%;
+  }
+
+  .header.open .menu__body {
+    transform: translate(-100%);
+    visibility: visible;
+  }
+}
