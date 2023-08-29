@@ -60,10 +60,15 @@ body {
   opacity: 1;
 }
 
-.wrapper {
-  position: relative;
+body.lock {
   overflow: hidden;
-  width: 100%;
+}
+
+.wrapper {
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 ._container {
@@ -72,10 +77,12 @@ body {
   padding: 0 15px;
   box-sizing: content-box;
 }
-/* ================================ ШАПКА ================================== */
+
+
+/* ==================== ШАПКА ================================== */
 .header {
   width: 100%;
-  z-index: 1;
+  margin: 0px 0px 76px 0px;
 }
 
 .header__container {
@@ -120,12 +127,146 @@ body {
 }
 
 .menu__link {
+	position: relative;
   font-family: "gotham";
   font-weight: 300;
   line-height: 134.2%;
+  cursor: pointer;
+  padding: 10px 0px;
+}
+
+.menu__link:after {
+	content: "";
+	position: absolute;
+	bottom: 0px;
+	height: 1px;
+	width: 100%;
+	left: 0;
+	background-color: #d39042;
+	transition: .3s;
+	transition-timing-function: ease-in-out;
+	transform: scaleX(0);
+}
+
+.menu__link:hover:after {
+	transform: scaleX(1);
+}
+
+.menu__link:active {
+	color: #d39042;
+}
+
+/* ====================Main==================== */
+.page {
+  flex: 1 1 auto;
+}
+
+.page__main-block {
+}
+
+/* ==================Main-block================== */
+
+.main-block {
+}
+
+._ibg img:first-child {
+	position: absolute;
+	right: 135px;
+	top: 0;
+	object-fit: none;
+	z-index: -10;
+ }
+ 
+ ._ibg img:last-child {
+	position: absolute;
+	top: 779px;
+	width: 100vw;
+	height: 150px;
+	z-index: -10;
+ }
+
+.main-block__container {
+}
+
+.main-block__body {
+	max-width: 912px;
+}
+
+.main-block__title-h4 {
+  font-family: "gotham";
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 140%;
+  color: #d39042;
+  margin: 0px 0px 32px 0px;
+}
+
+.main-block__title {
+  font-family: "gotham";
+  font-weight: 400;
+  font-size: 90px;
+  margin: 0px 0px 24px 0px;
+}
+
+.main-block__title span {
+  font-style: italic;
+}
+
+.main-block__buttons {
+  max-width: 471px;
+}
+
+.main-block__button {
+  font-family: "gotham";
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 134.2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100px;
+}
+
+.arrowbutton {
+	margin-right: -89px;
+	fill: #F9FAFA;
+	transition: transform .5s ease;
+}
+
+.main-block__button:hover .arrowbutton {
+	fill: #d39042;
+	transform: translateX(35px);
+}
+
+.main-block__button:active {
+	color: #d39042;
+}
+
+.main-block__button:after {
+content: "";
+min-width: 100px;
+height: 100px;
+border-radius: 50%;
+border: solid 1px #737373;
+}
+
+
+
+.main-block__image {
+
+}
+
+
+
+/* =================Подвал==================== */
+.footer {
 }
 
 @media (max-width: 992px) {
+  .header {
+    width: 100%;
+    margin: 0px 0px 76px 0px;
+  }
   .header__container {
     min-height: 111px;
   }
@@ -146,22 +287,31 @@ body {
   .menu__link {
     font-size: 18px;
   }
+
+  ._ibg img:first-child {
+	display: none;
+ }
+ 
+ ._ibg img:last-child {
+	display: none;
+ }
 }
 
 @media (max-width: 767px) {
+  /* ===========================Затемнение экрана при открытом меню============================ */
   .wrapper.opacityBody::after {
-	content: "";
-	background-color: #272727;
-	opacity: 50%;
-	left:0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	position: absolute;
-	transition: all 0.3s 0.3s;
-	}
-	
+    content: "";
+    position: absolute;
+    background-color: #272727;
+    opacity: 40%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: opacity 1s ease;
+  }
 
+  /* =====================Бургер меню и три полоски================================*/
   .header__burger-btn {
     display: block;
     z-index: 20;
@@ -176,16 +326,16 @@ body {
     transition: background-color 0.5s, opacity 0.25s, transform 0.5s;
     will-change: transform;
   }
+
   .header__burger-btn span:nth-child(1) {
     transform: translateY(-10px);
   }
-  .header__burger-btn span:nth-child(2) {
-  }
+
   .header__burger-btn span:nth-child(3) {
     transform: translateY(10px);
   }
 
-  /* =========================== КРЕСТИК =========================== */
+  /* ============================================ КРЕСТИК =========================== */
 
   .header.open .header__burger-btn span:nth-child(1) {
     transform: translateY(0) rotate(27deg);
@@ -201,19 +351,21 @@ body {
     opacity: 0;
   }
 
+  /* ======================== Всплывающее меню и стили элементов меню ====================*/
   .menu__body {
     position: fixed;
     top: 0px;
     right: -290px;
     width: 290px;
     min-height: 370px;
-    background-color: #423d3d;
+    background-color: #292828;
     transition: transform 0.5s, visibility 0.2s;
-	 z-index: 19;
+    z-index: 19;
   }
 
-  .wrapper.opacityBody::before {
-    opacity: 40%;
+  .header.open .menu__body {
+    transform: translate(-100%);
+    visibility: visible;
   }
 
   .menu__list {
@@ -228,6 +380,18 @@ body {
   .menu__item {
     padding: 0px 0px 20px 0px;
   }
+
+  .menu__link {
+    font-size: 24px;
+    line-height: 140%;
+  }
+
+  .menu__link:after {
+	display: none;
+ }
+ .menu__link:hover:after {
+	display: none;
+ }
 
   /* ========================== Скольжение элементов меню ================== */
   .header.open .menu__item:first-child {
@@ -294,14 +458,7 @@ body {
       margin-left: 0%;
     }
   }
+}
 
-  .menu__link {
-    font-size: 24px;
-    line-height: 140%;
-  }
-
-  .header.open .menu__body {
-    transform: translate(-100%);
-    visibility: visible;
-  }
+@media (max-width: 541px) {
 }
